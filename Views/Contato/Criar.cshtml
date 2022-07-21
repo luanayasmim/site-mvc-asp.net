@@ -9,6 +9,7 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="./css/site.css" rel="stylesheet" />
 </head>
 <body>
 
@@ -25,17 +26,20 @@
             <label for="nome">Nome</label>
             <!--A propriedade asp-for informa o campo que será atualizado-->
             <input type="text" asp-for="Nome" class="form-control" placeholder="Maria José">
+            @Html.ValidationMessageFor(x => x.Nome)
         </div>
         <div class="form-group">
             <label for="exampleInputEmail1">Endereço de E-mail</label>
             <input type="email" asp-for="Email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="exemplo@gmail.com">
             <small id="emailHelp" class="form-text text-muted">Nós não compartilharemos suas informações com mais ninguém</small>
+            @Html.ValidationMessageFor(x => x.Email)
         </div>
         <div class="form-group">
             <label for="contato">Contato</label>
             <input type="tel" asp-for="Contato" class="form-control" placeholder="(11) 4002-8922">
+            @Html.ValidationMessageFor(x => x.Contato)
         </div>
-        <button type="submit" class="btn btn-primary btn-block">Adicionar</button>
+        <button type="submit" class="btn btn-success btn-block">Adicionar</button>
     </form>
     <br />
     <a class="btn btn-dark btn-block" asp-controller="Contato" asp-action="Index" role="button">Voltar</a>
