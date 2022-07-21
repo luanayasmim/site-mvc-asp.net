@@ -29,9 +29,10 @@ namespace AplicacaoWeb.Controllers
             return View();
         }
 
-        public IActionResult Editar()
+        public IActionResult Editar(int id)
         {
-            return View();
+            ContatoModel contato = _contatoRepositorio.ListarPorID(id);
+            return View(contato);
         }
         public IActionResult Apagar()
         {
@@ -43,6 +44,13 @@ namespace AplicacaoWeb.Controllers
         public IActionResult Criar(ContatoModel p_contato)
         {
             _contatoRepositorio.Adicionar(p_contato);
+            return RedirectToAction("Index");
+        }
+
+        [HttpPost]
+        public IActionResult Editar(ContatoModel p_contato)
+        {
+            _contatoRepositorio.Atualizar(p_contato);
             return RedirectToAction("Index");
         }
     }

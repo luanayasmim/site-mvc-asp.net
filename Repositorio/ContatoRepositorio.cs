@@ -14,6 +14,11 @@ namespace AplicacaoWeb.Repositorio
         {
             _bancoContext = bancoContext;
         }
+
+        public ContatoModel ListarPorID(int id)
+        {
+            return _bancoContext.Contatos.FirstOrDefault(x => x.Id ==id);
+        }
         public List<ContatoModel> BuscarTodos()
         {
             //Busca todos os registros no banco
@@ -27,5 +32,21 @@ namespace AplicacaoWeb.Repositorio
             return contato;
         }
 
+        public ContatoModel Atualizar(ContatoModel contato)
+        {
+            ContatoModel contatoDB = ListarPorID(contato.Id);
+            if (contatoDB == null) throw new SystemException("Houve um erro na atualização do contato");
+
+            contatoDB.Nome = contato.Nome;
+            contatoDB.Email = contato.Email;
+            contatoDB.Contato = contato.Contato;
+
+            _bancoContext.Contatos.Update(contatoDB);
+            _bancoContext.SaveChanges();
+
+            return contatoDB;
+
+
+        }
     }
 }
