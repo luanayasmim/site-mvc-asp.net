@@ -1,0 +1,32 @@
+﻿<!--Vinculando uma model com uma view-->
+@model ContatoModel
+@{
+    ViewData["Title"] = "Criar Novo Contato";
+}
+<div class="text-center">
+    
+    <h1 class="display-4">Adicionar novo Contato</h1>
+    
+</div>
+
+<!--Sincronizando informações-->
+<form asp-controller="Contato" asp-action="Criar" method="post">
+
+    <div class="form-group">
+        <label for="nome">Nome</label>
+        <!--A propriedade asp-for informa o campo que será atualizado-->
+        <input type="text" asp-for="Nome" class="form-control" placeholder="Maria José">
+    </div>
+    <div class="form-group">
+        <label for="exampleInputEmail1">Endereço de E-mail</label>
+        <input type="email" asp-for="Email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="exemplo@gmail.com">
+        <small id="emailHelp" class="form-text text-muted">Nós não compartilharemos suas informações com mais ninguém</small>
+    </div>
+    <div class="form-group">
+        <label for="contato">Contato</label>
+        <input type="tel" asp-for="Contato" class="form-control" placeholder="(11) 4002-8922">
+    </div>
+    <button type="submit" class="btn btn-primary btn-block">Adicionar</button>
+</form>
+<br /> 
+<a class="btn btn-dark btn-block" asp-controller="Contato" asp-action="Index" role="button">Voltar</a>
