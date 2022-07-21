@@ -34,9 +34,17 @@ namespace AplicacaoWeb.Controllers
             ContatoModel contato = _contatoRepositorio.ListarPorID(id);
             return View(contato);
         }
-        public IActionResult Apagar()
+        public IActionResult ApagarConfirmacao(int id)
         {
-            return View();
+            ContatoModel contato = _contatoRepositorio.ListarPorID(id);
+            return View(contato);
+        }
+
+        //Método GET
+        public IActionResult Apagar(int id)
+        {
+            _contatoRepositorio.Apagar(id);
+            return RedirectToAction("Index");
         }
 
         //Método POST

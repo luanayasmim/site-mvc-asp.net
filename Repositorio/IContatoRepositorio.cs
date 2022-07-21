@@ -15,6 +15,7 @@ namespace AplicacaoWeb.Repositorio
         ContatoModel Adicionar(ContatoModel contato);
         //Atualizar
         ContatoModel Atualizar(ContatoModel contato);
+        bool Apagar(int id);
 
     }
 }

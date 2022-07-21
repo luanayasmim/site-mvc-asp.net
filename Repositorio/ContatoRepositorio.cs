@@ -45,7 +45,16 @@ namespace AplicacaoWeb.Repositorio
             _bancoContext.SaveChanges();
 
             return contatoDB;
+        }
 
+        public bool Apagar(int id)
+        {
+            ContatoModel contatoDB = ListarPorID(id);
+            if (contatoDB == null) throw new SystemException("Houve um erro para apagar o contato!");
+
+            _bancoContext.Contatos.Remove(contatoDB);
+            _bancoContext.SaveChanges();
+            return true;
 
         }
     }
