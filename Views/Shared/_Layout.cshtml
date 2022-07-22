@@ -6,6 +6,8 @@
     <title>@ViewData["Title"] - Controle de Contatos</title>
     <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.min.css" />
     <link rel="stylesheet" href="~/css/site.css" />
+    <link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/v/dt/dt-1.12.1/datatables.min.css" />
+
 </head>
 <body>
     <header>
@@ -24,6 +26,9 @@
                         <li class="nav-item">
                             <a class="nav-link text-light" asp-area="" asp-controller="Contato" asp-action="Index">Contatos</a>
                         </li>
+                        <li class="nav-item">
+                            <a class="nav-link text-light" asp-area="" asp-controller="Usuario" asp-action="Index">Usuários</a>
+                        </li>
                     </ul>
                 </div>
             </div>
@@ -40,9 +45,10 @@
             &copy; 2022 - Controle de Contatos
         </div>
     </footer>
-    <script src="~/lib/jquery/dist/jquery.min.js"></script>
-    <script src="~/lib/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
-    <script src="~/js/site.js" asp-append-version="true"></script>
+    <script defer src="~/lib/jquery/dist/jquery.min.js"></script>
+    <script defer src="~/lib/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
+    <script defer src="~/js/site.js" asp-append-version="true"></script>
+    <script defer type="text/javascript" src="https://cdn.datatables.net/v/dt/dt-1.12.1/datatables.min.js"></script>
     @await RenderSectionAsync("Scripts", required: false)
 </body>
 </html>

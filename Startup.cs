@@ -30,6 +30,7 @@ namespace AplicacaoWeb
             services.AddEntityFrameworkSqlServer().AddDbContext<BancoContext>(o=>o.UseSqlServer(Configuration.GetConnectionString("DataBase")));
             //Método para adicionar informações no banco
             services.AddScoped<IContatoRepositorio, ContatoRepositorio>();
+            services.AddScoped<IUsuarioRepositorio, UsuarioRepositorio>();
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.

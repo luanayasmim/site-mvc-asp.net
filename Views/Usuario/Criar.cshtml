@@ -1,0 +1,61 @@
+﻿<!--Vinculando uma model com uma view-->
+@model UsuarioModel
+@{
+    ViewData["Title"] = "Criar Novo Usuário";
+}
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="./css/site.css" rel="stylesheet" />
+</head>
+<body>
+
+    <div class="text-center">
+
+        <h1 class="display-4">Adicionar novo Usuário</h1>
+
+    </div>
+
+    <!--Sincronizando informações-->
+    <form asp-controller="Usuario" asp-action="Criar" method="post">
+
+        <div class="form-group">
+            <label for="nome">Nome</label>
+            <!--A propriedade asp-for informa o campo que será atualizado-->
+            <input type="text" asp-for="NomeUsuario" class="form-control" placeholder="Maria José">
+            @Html.ValidationMessageFor(x => x.NomeUsuario)
+        </div>
+        <div class="form-group">
+            <label for="exampleInputEmail1">Endereço de E-mail</label>
+            <input type="email" asp-for="EmailUsuario" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="exemplo@gmail.com">
+            <small id="emailHelp" class="form-text text-muted">Nós não compartilharemos suas informações com mais ninguém</small>
+            @Html.ValidationMessageFor(x => x.EmailUsuario)
+        </div>
+        <div class="form-group">
+            <label for="nome">Login</label>
+            <input type="text" asp-for="Login" class="form-control" placeholder="MariMariaJoJo123">
+            @Html.ValidationMessageFor(x => x.Login)
+        </div>
+        <div class="form-group">
+            <label for="nome">Perfil</label>
+            <input type="text" asp-for="Login" class="form-control" placeholder="MariMariaJoJo123">
+            <select>
+                <option value="0">Selecione</option>
+                <option value="0">Administrador do site</option>
+                <option value="0">Padrão</option>
+
+
+
+            </select>
+            @Html.ValidationMessageFor(x => x.Login)
+        </div>
+
+        <button type="submit" class="btn btn-success btn-block">Adicionar</button>
+    </form>
+    <br />
+    <a class="btn btn-dark btn-block" asp-controller="Usuario" asp-action="Index" role="button">Voltar</a>
+</body>
+</html>
